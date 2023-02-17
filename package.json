@@ -1,0 +1,19 @@
+{
+  "name": "internal-team-skolska-stranka",
+  "version": "0.0.1",
+  "description": "## Setup",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/C1C0/internal-team-skolska-stranka.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/C1C0/internal-team-skolska-stranka/issues"
+  },
+  "homepage": "https://github.com/C1C0/internal-team-skolska-stranka#readme"
+}

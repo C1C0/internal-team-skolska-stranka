@@ -1,0 +1,10 @@
+{
+    "name": "internal-team/internal-team-skolska-stranka",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "InternalTeam\\InternalTeamSkolskaStranka\\": "app/"
+        }
+    },
+    "require": {}
+}
