@@ -6,5 +6,7 @@
             "InternalTeam\\InternalTeamSkolskaStranka\\": "app/"
         }
     },
-    "require": {}
+    "require": {
+      "ext-pdo": "*"
+    }
 }
