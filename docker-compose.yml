@@ -1,0 +1,29 @@
+# It seems like that it mainly depends on the Docker engine
+# you plan to use
+version: "3.8"
+
+services:
+  apache:
+    build: 
+      context: __docker
+      dockerfile: php.dockerfile
+    volumes: 
+      - ./app:/var/www/html
+    ports:
+      - "80:80"
+    depends_on:
+      - mysql
+  mysql:
+    image: mysql:8.0
+    ports:
+      - "3306:3306"
+    environment:
+        MYSQL_DATABASE: ${MYSQL_DATABASE:-name}
+        MYSQL_USER: ${MYSQL_USER:-user}
+        MYSQL_PASSWORD: ${MYSQL_PASSWORD:-password}
+        MYSQL_RANDOM_ROOT_PASSWORD: true
+    volumes:
+      - 'mysql:/var/lib/mysql'
+volumes:
+  app:
+  mysql:
