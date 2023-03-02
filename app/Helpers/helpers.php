@@ -14,6 +14,7 @@ if (!function_exists('view')) {
   function view(string $view, array $data = [])
   {
     $view = str_replace('.', DS, $view);
+    $view = str_replace('/', DS, $view);
     $file = APP_ROOT . DS . "views" . DS . $view . ".php";
     if (file_exists($file)) {
       extract($data);
