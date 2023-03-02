@@ -25,5 +25,4 @@ services:
     volumes:
       - 'mysql:/var/lib/mysql'
 volumes:
-  app:
   mysql:

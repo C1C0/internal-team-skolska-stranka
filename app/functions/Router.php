@@ -2,6 +2,9 @@
 
 namespace App\Functions;
 
+use App\Enums\Method;
+use App\Routes\Route;
+
 class Router
 {
   protected $routes = [];
@@ -9,36 +12,36 @@ class Router
   public function route(string $uri, string $method)
   {
     foreach ($this->routes as $route) {
-      if ($route['path'] === $uri && $route['method'] === $method) {
-        $route['function']();
+      if ($route->path === $uri && $route->method === Method::tryFrom($method)) {
+        $route->execute();
         return;
       }
     }
     abort(404);
   }
 
-  protected function addRoute(string $path, string $method, $function): void
+  protected function addRoute(string $path, Method $method, $function): void
   {
-    $this->routes[] = compact('path', 'method', 'function');
+    $this->routes[] = new Route($path, $method, $function);
   }
 
   public function get(string $path, $function): void
   {
-    $this->addRoute($path, 'GET', $function);
+    $this->addRoute($path, Method::GET, $function);
   }
 
   public function post(string $path, $function): void
   {
-    $this->addRoute($path, 'POST', $function);
+    $this->addRoute($path, Method::POST, $function);
   }
 
   public function delete(string $path, $function): void
   {
-    $this->addRoute($path, 'DELETE', $function);
+    $this->addRoute($path, Method::DELETE, $function);
   }
 
   public function put(string $path, $function): void
   {
-    $this->addRoute($path, 'PUT', $function);
+    $this->addRoute($path, Method::PUT, $function);
   }
 }
