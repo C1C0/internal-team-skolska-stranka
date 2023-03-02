@@ -3,7 +3,7 @@
 namespace App\Functions;
 
 use App\Enums\Method;
-use App\Routes\Route;
+use App\Classes\Route;
 
 class Router
 {
