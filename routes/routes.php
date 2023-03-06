@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * @var \App\Functions\Router $router - defined in @see public/index.php
+ */
 $router->get('/', function () {
   return view('index');
 });
