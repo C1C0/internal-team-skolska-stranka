@@ -1,11 +1,14 @@
 <?php
 
 if (!function_exists('dd')) {
-  function dd($data)
+  function dd(...$data)
   {
-    echo "<pre>";
-    var_dump($data);
-    echo "</pre>";
+      foreach ($data as $part){
+          echo "<pre style='border: 1px solid #222222; border-radius: 10px; padding: 10px; background: #ffeeff'>";
+          var_dump($part);
+          echo "</pre>";
+      }
+
     die();
   }
 }

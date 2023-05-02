@@ -10,16 +10,16 @@
     <h1>Hello world</h1>
 
     <?php
-    
-    try {
-        $conn = new PDO("mysql:host=mysql;dbname=school", "internal", "secret");
-        // set the PDO error mode to exception
-        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        echo "Connected successfully";
-      } catch(PDOException $e) {
-        echo "Connection failed: " . $e->getMessage();
-      }
-    
+
+    use App\Classes\Database\DB;
+    use App\Classes\Database\MysqlConnection;
+
+    $connection = new MysqlConnection('mysql', 'school', 'internal', 'secret');
+
+    dd(DB::query()->raw('SELECT * FROM users'));
+
+    echo "<br>Connected successfully";
+
     ?>
 </body>
 </html>
