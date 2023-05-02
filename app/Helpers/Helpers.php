@@ -20,7 +20,7 @@ if (!function_exists('view')) {
       extract($data);
       require $file;
     } else {
-      abort(404, "View file $view not found");
+      return abort(404, "View file $view not found");
     }
   }
 }
@@ -31,7 +31,7 @@ if (!function_exists('abort')) {
     http_response_code($code);
     $file = APP_ROOT . DS . "views" . DS . "errors" . DS . $code . ".php";
     if (file_exists($file)) {
-      return view("errors.$code", compact('message'));
+      exit(view("errors.$code", compact('message')));
     }
     exit;
   }
